@@ -1,13 +1,15 @@
 <template>
 <div class="container mx-auto p-6">
-  <ProductDetail />
+  <ProductDetail :productId="$route.params.id" />
 </div>
 </template>
 
 <script>
 export default {
   data() {
-    return {}
+    return {
+      productId: 1
+    }
   }
 }
 </script>

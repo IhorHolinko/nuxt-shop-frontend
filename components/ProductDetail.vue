@@ -68,8 +68,11 @@ export default {
     }
   },
   mounted() {
-    this.getProduct()
+    this.getProduct(this.productId)
   },
+  props: [
+    'productId'
+  ],
   methods: {
     toggleDropdown(event) {
       this.dropdownVisible = !this.dropdownVisible
@@ -77,8 +80,8 @@ export default {
     closeDropdown() {
       this.dropdownVisible = false
     },
-    async getProduct() {
-      await fetch('https://fakestoreapi.com/products/1')
+    async getProduct(id) {
+      await fetch(`https://fakestoreapi.com/products/${id}`)
         .then(response => response.json())
         .then(data => this.product = data)
     }
